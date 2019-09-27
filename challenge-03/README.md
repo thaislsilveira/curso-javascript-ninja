@@ -3,7 +3,7 @@
 ```js
 // Declarar uma variável qualquer, que receba um objeto vazio.
 
-var myvar;
+var myvar = {};
 
 /*
 Declarar uma variável `pessoa`, que receba suas informações pessoais.
@@ -140,7 +140,7 @@ Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
 */
-//25
+//pessoa.mostrarIdade(); // "Olá, eu tenho 25 anos!"
 
 /*
 Agora, faça a `pessoa` caminhar alguns metros, invocando o método `andar` 3x,
@@ -155,7 +155,7 @@ pessoa.andar(1);
 A pessoa ainda está andando? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-//true
+pessoa.andando; //true
 
 /*
 Se a pessoa ainda está andando, faça-a parar.
@@ -166,13 +166,13 @@ pessoa.parar();
 E agora: a pessoa ainda está andando? (Use uma instrução para responder e
 comentários inline ao lado da instrução para mostrar a resposta retornada)
 */
-//false;
+pessoa.andando; //false;
 
 /*
 Quantos metros a pessoa andou? (Use uma instrução para responder e comentários
 inline ao lado da instrução para mostrar a resposta retornada)
 */
-//14
+pessoa.caminhouQuantosMetros//14
 
 /*
 Agora vamos deixar a brincadeira um pouco mais divertida! :D
@@ -193,25 +193,20 @@ correta, de acordo com os dados inseridos no objeto.
 */
 
 pessoa.apresentacao = function(){
+ var sexo = 'o';
+ var idade = ' tenho '+ pessoa.idade+ ' anos ';
+ var metro = pessoa.caminhouQuantosMetros + ' metros!';
+   
     if(pessoa.sexo === 'feminino'){
-        var sexo = 'Olá, eu sou a ';
-    }
-    else{
-        var sexo  = 'Olá, eu sou o ';
+        sexo = 'a';
     }
     if(pessoa.idade === 1){
-        var idade = ' tenho '+ pessoa.idade+ ' ano ';
-    }
-    else {
-        var idade = ' tenho '+ pessoa.idade+ ' anos ';
+        idade = 'pessoa.idade+ ' ano ';
     }
     if(pessoa.caminhouQuantosMetros === 1){
-        var metro = 'eu já caminhei '+ pessoa.caminhouQuantosMetros + ' metro!';
+        metro = pessoa.caminhouQuantosMetros + ' metro!';
     }
-    else {
-        var metro = 'eu já caminhei '+ pessoa.caminhouQuantosMetros + ' metros!';
-    }
-    return sexo + pessoa.nome+ ' ' + pessoa.sobrenome + idade + pessoa.altura + ', meu peso é '+ pessoa.peso + ' e, só hoje,' + metro;
+    return 'Olá, eu sou '+ sexo + pessoa.nome+ ' ' + pessoa.sobrenome + ' tenho '+ idade + pessoa.altura + ', meu peso é '+ pessoa.peso + ' e, só hoje, eu já caminhei ' + metro;
     
 }
 
