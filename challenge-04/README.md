@@ -8,7 +8,7 @@ equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
 var isTruthy = function(x){
- return x === true ? true : false;	
+ return x  ? true : false;	
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
@@ -21,7 +21,6 @@ isTruthy(undefined);
 isTruthy(0);
 isTruthy(-0);
 isTruthy('');
-isTruthy("");
 
 
 
@@ -29,14 +28,14 @@ isTruthy("");
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
 isTruthy(1);
-isTruthy(2);
-isTruthy(3);
-isTruthy(4);
-isTruthy(5);
-isTruthy(6);
-isTruthy(7);
+isTruthy({x: 10, y: 20});
+isTruthy(function(){});
+isTruthy(3 + 4);
+isTruthy([3,2,1]);
+isTruthy([]);
+isTruthy({});
 isTruthy(8);
-isTruthy(9);
+isTruthy('thais);
 isTruthy(true);
 
 
@@ -61,7 +60,7 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 	quantasPortas: 4,
 	assentos: 5,
 	quantidadePessoas: 0
-}
+};
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
@@ -75,21 +74,21 @@ carro.mudarCor = function(a){
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
 carro.obterCor = function(){
-	carro.cor = 'Preto';
+	return carro.cor;
 }
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
 carro.obterModelo = function(){
-	carro.modelo = 'Corolla';
+	return carro.modelo;
 }
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
 carro.obterMarca = function(){
-	carro.marca = 'Corolla';
+ return	carro.marca;
 }
 
 /*
@@ -98,7 +97,7 @@ Crie um método chamado `obterMarcaModelo`, que retorne:
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 carro.obterMarcaModelo = function(){
-	return carro.obterMarca() + carro.modelo();
+	return 'Esse carro é um '+ carro.obterMarca() + ' ' + carro.modelo();
 }
 
 /*
@@ -151,7 +150,7 @@ carro.cor; //'Preto'
 
 // Mude a cor do carro para vermelho.
 
-carro.Mudarcor('Vermelho'); //'Vermelho'
+carro.Mudarcor('Vermelho'); //undefined
 
 // E agora, qual a cor do carro?
 
@@ -159,13 +158,13 @@ carro.cor; //'Vermelho'
 
 // Mude a cor do carro para verde musgo.
 
-carro.Mudarcor('Verde Musgo'); //'Verde Musgo'
+carro.Mudarcor('Verde Musgo'); //undefined
 
 // E agora, qual a cor do carro?
 carro.cor; //'Verde Musgo'
 
 // Qual a marca e modelo do carro?
-carro.marca; // 'Toyota'
+carro.obterMarcaModelo(); // 'Esse carro é um  Corolla Toyota'
 
 // Adicione 2 pessoas no carro.
  carro.pessoa(2) // 'Só cabem mais 3 pessoas!'
