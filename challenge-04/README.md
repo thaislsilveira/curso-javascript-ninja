@@ -117,25 +117,17 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.pessoa = function(b){
-var pessoa  = 0;
-	if(carro.quantidadePessoas<== 5){
-		pessoa = carro.quantidadePessoas+=b;
-		return 'Já temos '+ pessoa +' pessoas no carro!';
-	}else if(carro.quantidadePessoas<== 4){
-		pessoa = carro.quantidadePessoas+=b;
-		return 'Só cabem mais '+ pessoa +' pessoas!';
-	}else if(carro.quantidadePessoas<== 3){
-		pessoa = carro.quantidadePessoas+=b;
-		return 'Só cabem mais '+ pessoa +' pessoas!';
-	}else if(carro.quantidadePessoas<== 2){
-		pessoa = carro.quantidadePessoas+=b;
-		return 'Só cabem mais '+ pessoa +' pessoas!';
-	}else if(carro.quantidadePessoas<== 1){
-		pessoa = carro.quantidadePessoas+=b;
-		return 'Só cabem mais '+ pessoa +' pessoa!';
-	}else{
-		return 'O carro já está lotado!';
-	}
+var pessoa = carro.quantidadePessoas+=b;
+	if(carro.quantidadePessoas === carro.assentos && pessoa >= carro.assentos){
+		return 'O carro já está lotado!';     
+    }
+   if(pessoa > carro.assentos){
+   var qtdPessoas = carro.assentos - carro.quantidadePessoas;
+   var singular = qtdPessoas === 1? 'pessoa': 'pessoas';
+		return 'Só cabem mais '+ qtdPessoas +' ' + singular+ '!' ;
+  	}
+  carro.quantidadePessoas+=b;
+  	return 'Já temos '+ carro.quantidadePessoas +' pessoas no carro!';
 }
 
 /*
@@ -167,20 +159,20 @@ carro.cor; //'Verde Musgo'
 carro.obterMarcaModelo(); // 'Esse carro é um  Corolla Toyota'
 
 // Adicione 2 pessoas no carro.
- carro.pessoa(2) // 'Só cabem mais 3 pessoas!'
+ carro.pessoa(2) // 'Já temos 2 pessoas no carro!'
 
 // Adicione mais 4 pessoas no carro.
- carro.pessoa(4) // 'O carro já está lotado!'
+ carro.pessoa(4) // 'Só cabem mais 3 pessoas!'
 
 // Faça o carro encher.
- carro.pessoa(3) // 'O carro já está lotado!'
+ carro.pessoa(3) // 'Já temos 5 pessoas no carro!'
 
 // Tire 4 pessoas do carro.
-?
+carro.pessoa(4) // 'Já temos 1 pessoas no carro!'
 
 // Adicione 10 pessoas no carro.
-?
+carro.pessoa(10) // 'Só cabem mais 4 pessoas'
 
 // Quantas pessoas temos no carro?
-?
+carro.quantidadePessoas; // 1
 ```
