@@ -118,17 +118,19 @@ citado acima, no lugar de "pessoas".
 */
 carro.pessoa = function(b){
 var pessoa = carro.quantidadePessoas+=b;
+var qtdPessoas = carro.assentos - carro.quantidadePessoas;
+var singular = qtdPessoas === 1? 'pessoa': 'pessoas';
+ 
 	if(carro.quantidadePessoas === carro.assentos && pessoa >= carro.assentos){
 		return 'O carro já está lotado!';     
     }
    if(pessoa > carro.assentos){
-   var qtdPessoas = carro.assentos - carro.quantidadePessoas;
-   var singular = qtdPessoas === 1? 'pessoa': 'pessoas';
+   
 		return 'Só cabem mais '+ qtdPessoas +' ' + singular+ '!' ;
   	}
   carro.quantidadePessoas+=b;
   	return 'Já temos '+ carro.quantidadePessoas +' pessoas no carro!';
-}
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
